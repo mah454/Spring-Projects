@@ -14,7 +14,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-@Configuration
+
+/*
+* Comment out this code for use oracle database
+*
+* */
+
+/*@Configuration
 @EnableTransactionManagement
 public class DatabaseConfig {
 
@@ -53,4 +59,4 @@ public class DatabaseConfig {
         emf.setJpaProperties(additionalProperties());
         return emf;
     }
-}
+}*/
