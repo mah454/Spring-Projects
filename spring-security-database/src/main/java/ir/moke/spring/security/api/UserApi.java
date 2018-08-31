@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.persistence.EntityNotFoundException;
-
 @RestController
 @RequestMapping("/api/user")
 public class UserApi {
@@ -20,6 +18,6 @@ public class UserApi {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable("id") long id) {
-        return ResponseEntity.ok(userService.find(id).orElseThrow(EntityNotFoundException::new));
+        return ResponseEntity.ok(userService.find(id));
     }
 }

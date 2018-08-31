@@ -44,8 +44,8 @@ public class PersonController {
 
     @GetMapping("/getPerson")
     public String getPerson(@PathParam("id") long id, Model model) {
-        Optional<Person> personOptional = personService.find(id);
-        model.addAttribute("person", personOptional.orElseThrow(EntityNotFoundException::new));
+        Person person = personService.find(id);
+        model.addAttribute("person", person);
         return "update";
     }
 

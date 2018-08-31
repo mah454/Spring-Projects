@@ -5,6 +5,7 @@ import ir.moke.spring.security.model.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,11 +25,10 @@ public class UserService {
 
     public void delete(User user) {
         repo.delete(user);
-        ;
     }
 
-    public Optional<User> find(long id) {
-        return repo.findById(id);
+    public User find(long id) {
+        return repo.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
     public List<User> findAll() {

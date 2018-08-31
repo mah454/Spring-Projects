@@ -5,6 +5,7 @@ import ir.moke.spring.jpa.model.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,8 +31,8 @@ public class PersonService {
         repository.delete(person);
     }
 
-    public Optional<Person> find(long id) {
-        return repository.findById(id);
+    public Person find(long id) {
+        return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
     public List<Person> find() {
