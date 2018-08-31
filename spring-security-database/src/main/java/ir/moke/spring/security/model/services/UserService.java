@@ -3,14 +3,16 @@ package ir.moke.spring.security.model.services;
 import ir.moke.spring.security.model.entities.User;
 import ir.moke.spring.security.model.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository repo;
@@ -33,5 +35,10 @@ public class UserService {
 
     public List<User> findAll() {
         return repo.findAll();
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return repo.findByUsername(username);
     }
 }
