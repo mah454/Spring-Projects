@@ -1,0 +1,13 @@
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    group = 'ir.moke.spring'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}

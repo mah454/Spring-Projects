@@ -1,0 +1,9 @@
+rootProject.name = 'spring-projects'
+
+
+include ':spring-simple'
+include ':spring-web'
+include ':spring-security'
+include ':spring-security-database'
+include ':spring-token'
+include ':spring-jpa'
